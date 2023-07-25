@@ -58,10 +58,12 @@ nav{
     left: 0;
     right: 0;
     z-index: 100;
+    position: relative;
 }
 
 .main-nav{
     justify-content: space-between;
+    padding: 10px;
 }
 
 .company-logo{
@@ -80,6 +82,10 @@ nav{
     border-radius: 25px;
 }
 
+.right-nav{
+    gap: 30px;
+}
+
 .nav-links ul{
     gap: 20px;
 }
@@ -90,6 +96,10 @@ nav{
 
 .hover-link:hover{
     color: var(--secondry-text-color);
+}
+
+.selected{
+    color: var(--acent-color);
 }
 
 .search-bar{
@@ -118,6 +128,10 @@ nav{
     background-color: var(--acent-color-dark);
 }
 
+.nav-toggle{
+    display: none;
+}
+
 
 main{
     margin-block: 20px;
@@ -133,7 +147,7 @@ main{
 
 .card{
     width: 300px;
-    min-height: 400px;
+    height: 400px;
     box-shadow: 0 0 4px #d4ecff;
     border-radius: 4px;
     cursor: pointer;
@@ -162,3 +176,41 @@ main{
     margin-block: 12px;
 }
 
+@media screen and (max-width:991px){
+
+    .nav-toggle{
+        display: block;
+        z-index: 100;
+    }
+
+    .main-nav{
+        overflow: initial;
+    }
+    .right-nav{
+        flex-direction: column;
+    }
+    .right-nav{
+        position: absolute;
+        flex-direction: column;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background-color: #f3faff;
+        box-shadow: 0 0 4px #bbd0e2;
+        padding-block: 50px;
+        transition: all 0.15s ease-out;
+    }
+    .right-nav.active{
+        left: 0;
+    }
+    .nav-links ul,.search-bar{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cards-container{
+        align-items: stretch;
+        justify-content: center;
+        gap: 30px;
+    }
+}

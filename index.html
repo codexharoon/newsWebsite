@@ -18,19 +18,26 @@
                     </div>
                     <span>World x News</span>
                 </a>
-    
-                <div class="nav-links">
-                    <ul class="flex">
-                        <li class="hover-link nav-item" onclick="fetchNews('Cricket');">Cricket</li>
-                        <li class="hover-link nav-item" onclick="fetchNews('Finance');">Finance</li>
-                        <li class="hover-link nav-item" onclick="fetchNews('Politics');">Politics</li>
-                    </ul>
+                
+                <div class="right-nav flex">
+
+                    <div class="nav-links">
+                        <ul class="flex">
+                            <li class="hover-link nav-item" id="cricket" onclick="onNavClick('cricket');">Cricket</li>
+                            <li class="hover-link nav-item" id="finance" onclick="onNavClick('finance');">Finance</li>
+                            <li class="hover-link nav-item" id="politics" onclick="onNavClick('politics');">Politics</li>
+                        </ul>
+                    </div>
+        
+                    <div class="search-bar flex">
+                        <input type="text" class="news-input" placeholder="e.g. CodexHaroon">
+                        <button class="search-button">Search</button>
+                    </div>
+
                 </div>
-    
-                <div class="search-bar flex">
-                    <input type="text" class="news-input" placeholder="e.g. CodexHaroon">
-                    <button class="search-button">Search</button>
-                </div>
+                
+
+                <a href="#" class="nav-toggle js-nav-toggle"><li class="fas fa-bars toggle-icon"></li></a>
             </div>
         </div>
     </nav>
@@ -63,6 +70,7 @@
 
     </main>
 
+    <script src="https://kit.fontawesome.com/6c84df34a8.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

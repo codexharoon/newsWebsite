@@ -21,36 +21,47 @@ async function fetchNews(query){
         const source = `${article.source.name}`;
         const desc = article.description;
 
-        if(!urlToImage){
-            urlToImage = 'https://via.placeholder.com/400x200';
+        if(urlToImage){
+
+            cardHTML += `
+
+                <a href="${url}" target="_blank">
+
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="${urlToImage}" alt="">
+                        </div>
+
+                        <div class="card-content">
+                            <h3>${title}</h3>
+                            <h6 class="news-source">${source}</h6>
+                            <p class="news-desc" id="news-desc">${desc}</p>
+                        </div>
+
+                    </div>
+                
+                </a>
+            `;
+
         }
-
-        cardHTML += `
-
-            <a href="${url}" target="_blank">
-
-                <div class="card">
-
-                    <div class="card-header">
-                        <img src="${urlToImage}" alt="">
-                    </div>
-
-                    <div class="card-content">
-                        <h3>${title}</h3>
-                        <h6 class="news-source">${source}</h6>
-                        <p class="news-desc" id="news-desc">${desc}</p>
-                    </div>
-
-                </div>
-            
-            </a>
-        `;
 
     });
 
     const newsCardContainer = document.getElementById('news-card-container');
     newsCardContainer.innerHTML = cardHTML;
     
+}
+
+let currentNavItem = null;
+function onNavClick(query){
+    fetchNews(query);
+
+    const navItem = document.getElementById(query);
+    if(currentNavItem)
+        currentNavItem.classList.remove('selected');
+    currentNavItem = navItem;
+    navItem.classList.add('selected');
 }
 
 
@@ -72,6 +83,12 @@ document.querySelector('.news-input').addEventListener('keydown',(key)=>{
             fetchNews(searchQuery);
         }
     }
+});
+
+
+document.querySelector('.js-nav-toggle').addEventListener('click',()=>{
+    document.querySelector('.toggle-icon').classList.toggle('fa-xmark');
+    document.querySelector('.right-nav').classList.toggle('active');
 });
 
 
