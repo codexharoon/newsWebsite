@@ -176,6 +176,22 @@ main{
     margin-block: 12px;
 }
 
+
+/* footer area  */
+
+.footer{
+    background-color: #242B2E;
+    padding: 30px;
+}
+
+.footer p{
+    color: white;
+}
+
+.footer a{
+    color: lightblue;
+}
+
 @media screen and (max-width:991px){
 
     .nav-toggle{

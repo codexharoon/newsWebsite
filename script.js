@@ -72,6 +72,9 @@ document.querySelector('.search-button').addEventListener('click',()=>{
         fetchNews(searchQuery);
     }
 
+    currentNavItem.classList.remove('selected');
+    currentNavItem = null;
+
 });
 
 
@@ -82,6 +85,10 @@ document.querySelector('.news-input').addEventListener('keydown',(key)=>{
         if(searchQuery){
             fetchNews(searchQuery);
         }
+
+        currentNavItem.classList.remove('selected');
+        currentNavItem = null;
+
     }
 });
 
